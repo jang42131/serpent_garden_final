@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Centered</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="centered">
+        <img src="garden.jpeg" alt="garden" id="image">
+        <div id="play-button" class="play-box">PLAY</div>
+        <audio id="audio" src="news.mp3" autoplay loop muted></audio>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('play-button');
+
+        // "PLAY" 버튼 클릭 시 음소거 해제 및 재생/일시정지 토글
+        playButton.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false; // 음소거 해제
+            }
+            if (audio.paused) {
+                audio.play();
+                playButton.style.display = 'none'; // 음악 재생 시 "PLAY" 버튼 숨기기
+            } else {
+                audio.pause();
+                playButton.style.display = 'block'; // 음악 일시 정지 시 "PLAY" 버튼 표시
+            }
+        });
+    </script>
+</body>
+</html>
